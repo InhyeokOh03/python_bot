@@ -1,4 +1,4 @@
 # python_bot
 
-These are my personal practices.  
+This is my personal practice.  
 sophomore, DGIST, spring season
