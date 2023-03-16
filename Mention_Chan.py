@@ -22,7 +22,7 @@ async def 야(ctx, *, message):
 
 @bot.event
 async def on_message(message):
-    if message.content == '멘션쨩~':
+    if message == '멘션쨩~':
         await message.channel.send('왜 불렀어용~?')
 
     await bot.process_commands(message)
