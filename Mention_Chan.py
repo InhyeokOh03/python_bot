@@ -16,9 +16,8 @@ async def on_ready():
 
 @bot.command()
 async def 야(ctx, *, message):
-    if message == '안녕':
-        for i in range(10):
-            await ctx.send('안녕')
+    for i in range(10):
+        await ctx.send(message)
 
 @bot.event
 async def on_message(message):
