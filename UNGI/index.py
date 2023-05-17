@@ -9,7 +9,9 @@ import google.oauth2.credentials
 import google_auth_oauthlib.flow
 import googleapiclient.discovery
 
-Token = 'MTA5ODg2ODQyNzIzMTM0MjY5Mg.GorKa8.g-ddoPY7JH3tFM_nL2yqt5LM5DbVDgUzdSk9oc'
+with open('secret.txt', 'rt') as f:
+    Token = f.readline()
+
 client = discord.Client(intents=discord.Intents.all())
 guild_id = 1012347803185446982
 
@@ -40,7 +42,7 @@ def rps(user_move, bot_move):
     if user_move not in ["가위", "바위", "보"]:
         return random.choice(["제대로 쳐내 씹련아 ㅋㅋ", "뭐하냐 시발아"])
     elif user_move == bot_move:
-        return random.choice(["ㄲㅂ", "다시 ㄱ", "ㅋㅋㅋRe"]ㅇ)
+        return random.choice(["ㄲㅂ", "다시 ㄱ", "ㅋㅋㅋRe"])
     elif user_move == "가위" and bot_move == "보":
         return waruguchi()
     elif user_move == "보" and bot_move == "바위":
@@ -81,6 +83,10 @@ async def on_message(message):
             if attachment.url.endswith(('.png', '.jpeg', '.jpg', '.gif')):
                 if binomial(1/3):
                     await message.channel.send(f"{message.author.mention} ㄱㄴ")
+    
+    if message:
+        if binomial(1/100):
+            await message.channel.send('박노윤 가슴 졸라큼')
     
     # 무조건 터지는 것
     ## 저스트

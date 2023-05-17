@@ -3,7 +3,8 @@ import discord
 # from discord.ext.commands import Bot
 from discord.ext import commands
 
-TOKEN = "MTAyNTYzOTQ4MjAxMzI3MDA0Ng.G-6fzL.7Enxsk2n9DjiND7A1VwsOuhpcQVmcDNoe6s6Zc"
+with open('secret.txt', 'rt') as f:
+    Token = f.readline()
 
 intents = discord.Intents.all()
 intents.members = True
