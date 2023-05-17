@@ -1,5 +1,9 @@
 import random
 import discord
+import datetime
+import pytz
+
+
 import os
 import google.oauth2.credentials
 import google_auth_oauthlib.flow
@@ -26,6 +30,25 @@ guild_id = 1012347803185446982
 ###functions
 def binomial(p):
     return random.random() < p
+
+def waruguchi():
+    first_words = ["아니", "진짜", "미친", "시발"]
+    last_words = ["졌노", "좆같노", "하아"]
+    return random.choice(first_words) + " " + random.choice(last_words)
+
+def rps(user_move, bot_move):
+    if user_move not in ["가위", "바위", "보"]:
+        return random.choice(["제대로 쳐내 씹련아 ㅋㅋ", "뭐하냐 시발아"])
+    elif user_move == bot_move:
+        return random.choice(["ㄲㅂ", "다시 ㄱ", "ㅋㅋㅋRe"]ㅇ)
+    elif user_move == "가위" and bot_move == "보":
+        return waruguchi()
+    elif user_move == "보" and bot_move == "바위":
+        return waruguchi()
+    elif user_move == "바위" and bot_move == "가위":
+        return waruguchi()
+    else:
+        return random.choice(["병신ㅋ", "허접ㅋ", "좆밥새기ㅋ"])
 ###
 
 @client.event
@@ -43,12 +66,6 @@ async def on_message(message):
     #     await message.channel.send(f"{message.author.mention} ㄱㄴ")
     
 
-    
-    
-    
-    
-    
-    
     
     # 확률적으로 터지는 것
     if 'ㅋㅋ' in message.content:
@@ -88,6 +105,18 @@ async def on_message(message):
     if message.content == '멤버목록':
         content = ", ".join([member.name for member in message.guild.members if not member.bot])
         await message.channel.send(content)
+
+    if message.content.startswith("가위바위보!"):
+        moves = ["가위", "바위", "보"]
+        bot_move = random.choice(moves)
+        user_move = message.content[7:]        
+        word = rps(user_move, bot_move)
+        await message.channel.send(bot_move)
+        await message.channel.send(word)
+        
+    if message.content.startswith("!시간"):
+        now = datetime.datetime.now(pytz.timezone("Asia/Seoul"))
+        await message.channel.send("지금 {}월 {}일 {}시 {}분임 ㅅㄱ".format(now.month, now.day, now.hour, now.minute))
 
     # 임베드
     if message.content == '디지스트 귀요미 두명':
