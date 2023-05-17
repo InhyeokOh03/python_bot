@@ -10,7 +10,7 @@ import google_auth_oauthlib.flow
 import googleapiclient.discovery
 
 with open('secret.txt', 'rt') as f:
-    Token = f.readline()
+    TOKEN = f.readline()
 
 client = discord.Client(intents=discord.Intents.all())
 guild_id = 1012347803185446982
@@ -180,4 +180,4 @@ async def on_message(message):
 
 # client.loop.create_task(check_youtube())
 # # ============================================================================================ 
-client.run(Token)
+client.run(TOKEN)

@@ -4,7 +4,7 @@ import discord
 from discord.ext import commands
 
 with open('secret.txt', 'rt') as f:
-    Token = f.readline()
+    TOKEN = f.readline()
 
 intents = discord.Intents.all()
 intents.members = True
