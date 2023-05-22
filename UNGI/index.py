@@ -3,11 +3,13 @@ import discord
 import datetime
 import pytz
 
+import requests
+import json
 
-import os
-import google.oauth2.credentials
-import google_auth_oauthlib.flow
-import googleapiclient.discovery
+# import os
+# import google.oauth2.credentials
+# import google_auth_oauthlib.flow
+# import googleapiclient.discovery
 
 with open('secret.txt', 'rt') as f:
     TOKEN = f.readline()
@@ -75,17 +77,17 @@ async def on_message(message):
             if binomial(1/5):
                 await message.channel.send(':owl:')
     if message:
-        if binomial(1/20):
+        if binomial(1/30):
             await message.channel.send('ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ')
             
     if message.attachments:
         for attachment in message.attachments:
             if attachment.url.endswith(('.png', '.jpeg', '.jpg', '.gif')):
-                if binomial(1/3):
+                if binomial(1/5):
                     await message.channel.send(f"{message.author.mention} ㄱㄴ")
     
     if message:
-        if binomial(1/100):
+        if binomial(1/200):
             await message.channel.send('박노윤 가슴 졸라큼')
     
     # 무조건 터지는 것
@@ -124,6 +126,7 @@ async def on_message(message):
         now = datetime.datetime.now(pytz.timezone("Asia/Seoul"))
         await message.channel.send("지금 {}월 {}일 {}시 {}분임 ㅅㄱ".format(now.month, now.day, now.hour, now.minute))
 
+
     # 임베드
     if message.content == '디지스트 귀요미 두명':
         embed = discord.Embed(colour=discord.Colour.red(), title = message.content, description='손선빈과 김웅기')
@@ -132,7 +135,13 @@ async def on_message(message):
         embed.set_footer(text=message.author, icon_url=message.author.avatar.url)
         # embed.add_field(name="field title", value='field description', inline=False)
         await message.channel.send(embed=embed)
-
+    
+    if message.content == '내정보':
+        user = message.author
+        date = datetime.datetime.utcfromtimestamp(((int(user.id) >> 22) + 1420070400000) / 1000)
+        embed = discord.Embed(colour=discord.Colour.blue(), title = f'{user.name}의 정보', description=f'디스코드 가입일 : {date.year}/{date.month}/{date.day}')
+        embed.set_image(url=user.avatar.url)
+        await message.channel.send(embed=embed)
 
 
     ## 개발중
