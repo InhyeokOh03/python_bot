@@ -77,18 +77,24 @@ async def on_message(message):
             if binomial(1/5):
                 await message.channel.send(':owl:')
     if message:
-        if binomial(1/30):
+        if binomial(1/40):
             await message.channel.send('ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ')
             
     if message.attachments:
         for attachment in message.attachments:
             if attachment.url.endswith(('.png', '.jpeg', '.jpg', '.gif')):
-                if binomial(1/5):
+                if binomial(1/10):
                     await message.channel.send(f"{message.author.mention} ㄱㄴ")
     
     if message:
         if binomial(1/200):
             await message.channel.send('박노윤 가슴 졸라큼')
+        
+    if '?' in message.content:
+        messages = ['조까슈', '조까', 'ㅈㄲ', 'ㅈㄲㅅ']
+        temp = random.choice(messages)
+        if binomial(1/100):
+            await message.channel.send(temp)
     
     # 무조건 터지는 것
     ## 저스트
