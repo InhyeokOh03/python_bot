@@ -26,7 +26,7 @@ async def 야(ctx, *, message):
         for _ in range(10):
             await ctx.send(message)
         
-@bot.command
+@bot.command()
 async def 웅기발작(ctx):
     for _ in range(10):
         temp = random.choice(["야", "웅기", "ㅖㅏ", "긍가?"])
