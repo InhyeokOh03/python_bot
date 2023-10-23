@@ -114,6 +114,10 @@ async def on_message(message):
         await message.channel.send('웅기잇')
     if '퍽' in message.content:
         await message.channel.send('하응~')
+    if '페이커' in message.content:
+        await message.channel.send('1557!! 1557!!')
+    if '진짜' in message.content:
+        await message.channel.send('어 맞아, 놀랍게도 그건 사실이야.')
 
     # 특수 명령어
     if message.content == '멤버목록':
@@ -184,7 +188,7 @@ async def on_message(message):
 
 #     # 이전에 가져온 동영상 ID와 비교하여 새로운 동영상이 있다면 알림 전송
 #     if previous_video_id != video_id:
-#         # 새로운 동영상의 제목 가져오기
+#         # 새로운 동영상의 제목 가져오
 #         title = response["items"][0]["snippet"]["title"]
 
 #         # Discord 봇으로 알림 전송
