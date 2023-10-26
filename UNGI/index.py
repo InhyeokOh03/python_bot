@@ -3,8 +3,8 @@ import discord
 import datetime
 import pytz
 
-import requests
-import json
+# import requests
+# import json
 
 # import os
 # import google.oauth2.credentials
@@ -96,6 +96,13 @@ async def on_message(message):
         if binomial(1/100):
             await message.channel.send(temp)
     
+    # 확률적으로 특수한 경우
+    # print(message.author.id)
+    if message.author.id == 412232201204137995:
+        if binomial(1/10):
+            his_id = 412232201204137995
+            await message.channel.send(f'<@{his_id}> ?')
+
     # 무조건 터지는 것
     ## 저스트
     if message.content == '야':
