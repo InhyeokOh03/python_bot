@@ -99,7 +99,7 @@ async def on_message(message):
     # 확률적으로 특수한 경우
     # print(message.author.id)
     if message.author.id == 412232201204137995:
-        if binomial(1/10):
+        if binomial(1/20):
             his_id = 412232201204137995
             await message.channel.send(f'<@{his_id}> ?')
 
