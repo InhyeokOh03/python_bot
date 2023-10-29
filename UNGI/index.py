@@ -87,7 +87,7 @@ async def on_message(message):
                     await message.channel.send(f"{message.author.mention} ㄱㄴ")
     
     if message:
-        if binomial(1/200):
+        if binomial(1/1000):
             await message.channel.send('박노윤 가슴 졸라큼')
         
     if '?' in message.content:
