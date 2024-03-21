@@ -25,9 +25,11 @@ async def on_ready():
 async def 야(ctx, message=None, count: int = 1):
     if message is None:
         await ctx.send('뭐')
+    elif count >= 100:
+        await ctx.send("좆까라")
     else:
         for i in range(count):
-            if i > 10 and count >= 15 and binomial(1/15):
+            if i > 10 and binomial(1/(100 - count)):
                 await ctx.send("씨발 더러워서 못해먹겠네.")
                 break
             await ctx.send(message)
