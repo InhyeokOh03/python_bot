@@ -13,17 +13,23 @@ intents.messages = True
 
 bot = commands.Bot(command_prefix='!', intents=intents)
 
+def binomial(p):
+    return random.random() < p
+
 @bot.event
 async def on_ready():
     print(f'Logged in as {bot.user.name} ({bot.user.id})')
     print("===============================================")
 
 @bot.command()
-async def 야(ctx, *, message):
-    if message == '':
+async def 야(ctx, message=None, count: int = 1):
+    if message is None:
         await ctx.send('뭐')
     else:
-        for _ in range(10):
+        for _ in range(count):
+            if count >= 15 and binomial(1/15):
+                await ctx.send("씨발 더러워서 못해먹겠네.")
+                break
             await ctx.send(message)
         
 @bot.command()
